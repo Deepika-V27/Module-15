@@ -3,7 +3,7 @@
 ## AIM:
 To write a Python program to build a binary search tree using a built-in function.
 
----
+
 
 ## ALGORITHM:
 
@@ -17,16 +17,42 @@ To write a Python program to build a binary search tree using a built-in functio
 8. Check whether the tree is a binary search tree using the `is_bst` property.
 9. **End the program.**
 
----
+
 
 ## PROGRAM:
 
 ```
-ENTER YOUR CODE
+from binarytree import Node
+def _build_bst_from_sorted_values(sorted_values):
+    
+    if len(sorted_values) == 0:
+        return None
+    mid_index = len(sorted_values) // 2
+    root = Node(sorted_values[mid_index])
+    root.left = _build_bst_from_sorted_values(sorted_values[:mid_index])
+    root.right = _build_bst_from_sorted_values(sorted_values[mid_index + 1 :])  
+    return (root)
+
+a=[]
+size=int(input())
+for i in range(size):
+    val=int(input())
+    a.append(val)
+
+l=_build_bst_from_sorted_values(sorted(a))
+print(l.postorder)
+print(l.is_bst)
+
+
+
+
 ```
 
 ## OUTPUT
-```
-```
+
+![image](https://github.com/user-attachments/assets/60a62242-f792-4508-8502-991edc0f39f6)
+
+
 
 ## RESULT
+Thus the program has implemented successfully.
